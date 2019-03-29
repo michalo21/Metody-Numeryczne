@@ -21,14 +21,14 @@ public class Newton {
        System.out.print("Wprowadź ile węzłów chcesz wprowadzic: ");
        int x = sc.nextInt();
        System.out.println("Podaj wartości poszczególnych węzłów i wartosci funkcji dla wezla");
-       int[] wezly = new int[x];
-       int[] funkcje = new int[x];
-       int[] ilorazy = new int[x]; // zawiera tylko rzedy ilorazow do wypisania
+       double[] wezly = new double[x];
+       double[] funkcje = new double[x];
+       double[] ilorazy = new double[x]; // zawiera tylko rzedy ilorazow do wypisania
        for(int i = 0; i < x; i++){
            System.out.print("x" + i + ": ");
-           wezly[i] = sc.nextInt();
+           wezly[i] = sc.nextDouble();
            System.out.print("f(x" + i + "): ");
-           funkcje[i] = sc.nextInt(); 
+           funkcje[i] = sc.nextDouble(); 
        }
        System.out.println("System liczy....");
        for(int i = 0; i < x; i++){
@@ -41,17 +41,31 @@ public class Newton {
        }
        System.out.print("Wypisanie N(x):  ");
        for(int i = 0; i <= x-1; i++){
-           System.out.print(ilorazy[i]);
+           if(ilorazy[i] != 0 ){
+             if(ilorazy[i] < 0){
+                 System.out.print(ilorazy[i]*-1);
+             }else{
+                 System.out.print(ilorazy[i]);
+             }
            for(int j = 0; j < i; j++){
-               System.out.print("(x-" + wezly[j] + ")");  
+               if(wezly[j]>=0){
+                    System.out.print("(x-" + wezly[j] + ")");  
+               }else{
+                   System.out.print("(x+" + wezly[j]*-1 + ")");  
+               }  
            }
            if(i < x-1){
-                System.out.print(" + ");
+                if(ilorazy[i+1]>=0 && ilorazy[i+1]!=0){
+                    System.out.print(" + ");
+                }else if(ilorazy[i+1]<0 && ilorazy[i+1]!=0){
+                    System.out.print(" - ");
+                }
+                
            }else{
                 System.out.print(" ");
            }
-       };
-            
+       }
+       }     
 
 
     }
