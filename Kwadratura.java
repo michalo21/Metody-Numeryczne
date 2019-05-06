@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Kwadratura {
 
      public static double func(double x){ // metoda odpowiedzialna za wprowadzenie funkcji; trzeba samemu wklepać
-        double func = 2*x*x*x + 3*x*x; 
+        double func = 5*x*x*x*x  - 3*x*x + 2; 
         return func;
     }
     public static void main(String[] args) {
@@ -36,6 +36,6 @@ public class Kwadratura {
         }
        sfps+=func(b - h/2);
        sfpp = h / 6*(func(a) + func(b) + 4*sfps + 2*sfpp);
-       System.out.print("Wartosc calki dla podanej funkcji to: " + sfpp);
+       System.out.print("Wartosc calki dla podanej funkcji to: " + sfpp+ " ");
     }
 }
